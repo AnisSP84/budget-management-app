@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>QA Report</title>
+  <style>
+    body { font-family: 'Segoe UI', monospace; background: #1e1e2e; color: #cdd6f4; padding: 2rem; }
+    pre { white-space: pre-wrap; word-wrap: break-word; font-size: 14px; line-height: 1.6; }
+    h1 { color: #89b4fa; }
+  </style>
+</head>
+<body>
+  <h1>QA Report</h1>
+  <pre>============================================================
+  QA REPORT
+  Generated: 2026-08-07T09:00:43.889Z
+============================================================
+
+────────────────────────────────────────────────────────────
+  AUTOMATED QA CHECKS
+────────────────────────────────────────────────────────────
+
+1. LINT (eslint)
+
+
+
+   <span style="color:#22c55e;font-weight:bold">[PASS]</span> No ESLint rule violations found.
+
+2. FORMAT CHECK (prettier)
+
+Checking formatting...
+All matched files use Prettier code style!
+
+   <span style="color:#22c55e;font-weight:bold">[PASS]</span> All files match Prettier code style
+
+3. UNIT + INTEGRATION TESTS (jest --coverage)
+
+Running database reset for integration tests...
+◇ injected env (0) from .env.test // tip: ⌁ auth for agents [www.vestauth.com]
+Resetting database schema...
+Schema applied.
+Running seed...
+◇ injected env (0) from .env // tip: ⌘ custom filepath { path: '/custom/path/.env' }
+Seeding started...
+Inserted 10 countries
+Inserted 6 users
+Inserted 4 categories
+Inserted 3 transactions
+Inserted 2 budgets
+Inserted 2 notifications
+Seeding completed successfully
+DB connection closed
+Database reset completed successfully.
+-----------------------------|---------|----------|---------|---------|-----------------------------------------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                                   
+-----------------------------|---------|----------|---------|---------|-----------------------------------------------------
+All files                    |   85.36 |     74.9 |   86.08 |    85.5 |                                                     
+ src                         |      95 |       50 |   66.66 |     100 |                                                     
+  app.js                     |      95 |       50 |   66.66 |     100 | 35                                                  
+ src/controllers             |   80.67 |     76.7 |   86.36 |   80.68 |                                                     
+  authController.js          |   90.76 |    90.32 |     100 |   90.76 | 22-23,75-76,135-136                                 
+  budgetController.js        |   62.68 |    57.44 |   81.81 |   62.68 | 5,22-23,36,44-63,68,75-76,80,95,102-103,115,131-132 
+  categoriesController.js    |   79.68 |    78.94 |     100 |   79.68 | 18-19,36-37,53-54,84-85,114-115,124,140-141         
+  exportController.js        |    5.71 |        0 |       0 |    5.71 | 4-61                                                
+  goalsController.js         |     100 |      100 |     100 |     100 |                                                     
+  notificationsController.js |   98.09 |      100 |     100 |   98.09 | 248,351                                             
+  recurringController.js     |      92 |    85.48 |     100 |      92 | 17,25,36,108,131-137,164                            
+  reportController.js        |     100 |    96.42 |     100 |     100 | 108                                                 
+  settingsController.js      |   97.89 |    96.15 |     100 |     100 | 152-153                                             
+  transactionsController.js  |   46.47 |       40 |      50 |   46.47 | 6,31-41,50-72,84-85,113-114,128-139,144-164         
+  userController.js          |      56 |       50 |      50 |      56 | 16-17,34-53                                         
+ src/middleware              |   87.37 |    66.66 |     100 |   87.25 |                                                     
+  bcryptMiddleware.js        |   76.19 |       50 |     100 |   76.19 | 20-21,26,40-41                                      
+  jwtMiddleware.js           |    88.4 |    73.33 |     100 |    88.4 | 33-34,73-74,107,141,146,161                         
+  response.js                |     100 |       50 |     100 |     100 | 4-11                                                
+ src/models                  |   88.54 |    71.08 |   84.74 |   88.75 |                                                     
+  authModel.js               |     100 |      100 |     100 |     100 |                                                     
+  budgetModel.js             |   66.66 |    15.38 |    62.5 |   68.96 | 18-24,28-35                                         
+  categoriesModel.js         |     100 |      100 |     100 |     100 |                                                     
+  goalsModel.js              |     100 |      100 |     100 |     100 |                                                     
+  notificationsModel.js      |   95.16 |      100 |     100 |   95.16 | 14,74,140                                           
+  recurringModel.js          |   79.31 |      100 |      75 |   79.31 | 5-23,67-94                                          
+  reportModel.js             |   91.11 |    70.83 |     100 |   91.11 | 92,143,150,157                                      
+  settingsModel.js           |   94.44 |    92.85 |     100 |   94.28 | 117-118,122-123                                     
+  transactionsModel.js       |   64.28 |        0 |   42.85 |   64.28 | 23-37,42-56,81-86,91-101                            
+  userModel.js               |     100 |      100 |     100 |     100 |                                                     
+ src/routers                 |   98.63 |      100 |   66.66 |   98.63 |                                                     
+  authRoutes.js              |     100 |      100 |     100 |     100 |                                                     
+  budgetRoutes.js            |     100 |      100 |     100 |     100 |                                                     
+  categoriesRoutes.js        |   83.33 |      100 |       0 |   83.33 | 22-23                                               
+  exportRoutes.js            |     100 |      100 |     100 |     100 |                                                     
+  goalsRoutes.js             |     100 |      100 |     100 |     100 |                                                     
+  mainRoutes.js              |     100 |      100 |     100 |     100 |                                                     
+  notificationsRoutes.js     |     100 |      100 |     100 |     100 |                                                     
+  recurringTransaction.js    |     100 |      100 |     100 |     100 |                                                     
+  reportRoutes.js            |     100 |      100 |     100 |     100 |                                                     
+  settingsRoutes.js          |     100 |      100 |     100 |     100 |                                                     
+  transactionsRoutes.js      |     100 |      100 |     100 |     100 |                                                     
+  userRoutes.js              |     100 |      100 |     100 |     100 |                                                     
+ src/services                |      80 |      100 |       0 |      80 |                                                     
+  db.js                      |      80 |      100 |       0 |      80 | 8                                                   
+-----------------------------|---------|----------|---------|---------|-----------------------------------------------------
+PASS __tests__/unit/model/budgetModel.test.js
+PASS __tests__/unit/model/transactionsModel.test.js
+PASS __tests__/unit/model/goalsModel.test.js
+PASS __tests__/unit/controller/recurringController.test.js
+PASS __tests__/unit/controller/budgetController.test.js
+PASS __tests__/unit/controller/user.controller.test.js
+PASS __tests__/unit/controller/export.controller.test.js
+PASS __tests__/unit/user.controller.test.js
+PASS __tests__/unit/controller/categories.controller.test.js
+PASS __tests__/unit/controller/notificationsController.test.js
+PASS __tests__/unit/controller/transactions.controller.test.js
+PASS __tests__/unit/controller/settingsController.test.js
+PASS __tests__/unit/model/notificationsModel.test.js
+PASS __tests__/unit/model/settings.model.test.js
+PASS __tests__/unit/middleware/jwt.middleware.test.js
+PASS __tests__/unit/model/user.model.test.js
+PASS __tests__/unit/middleware/bcrypt.middleware.test.js
+PASS __tests__/unit/controller/auth.controller.test.js
+PASS __tests__/unit/model/reportModel.test.js
+PASS __tests__/unit/model/categories.model.test.js
+PASS __tests__/unit/controller/goalsController.test.js
+PASS __tests__/unit/model/recurringModel.test.js
+PASS __tests__/unit/model/auth.model.test.js
+PASS __tests__/unit/controller/reportController.test.js
+PASS __tests__/unit/user.model.test.js
+PASS __tests__/unit/middleware/response.middleware.test.js
+
+Test Suites: 26 passed, 26 total
+Tests:       385 passed, 385 total
+Snapshots:   0 total
+Time:        2.208 s
+FAIL __tests__/integration/goals.routes.test.js
+  ● goals route integration tests › PUT /api/goals/deposit › should deposit funds and update current_amount in DB (200)
+
+    error: insert or update on table "goals" violates foreign key constraint "goals_user_id_fkey"
+
+    [0m [90m 162 |[39m
+     [90m 163 |[39m     test([32m'should deposit funds and update current_amount in DB (200)'[39m[33m,[39m [36masync[39m () [33m=&gt;[39m {
+    [31m[1m&gt;[22m[39m[90m 164 |[39m       [36mconst[39m seedRes [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m     |[39m                       [31m[1m^[22m[39m
+     [90m 165 |[39m         [32m`INSERT INTO goals (user_id, title, target_amount, current_amount, target_date)[39m
+     [90m 166 |[39m [32m       VALUES ($1, 'House Downpayment', 50000, 1000, '2028-12-31')[39m
+     [90m 167 |[39m [32m       RETURNING goal_id`[39m[33m,[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.&lt;anonymous&gt; (__tests__/integration/goals.routes.test.js:164:23)
+
+FAIL __tests__/integration/categories.routes.test.js
+  ● GET /api/categories › should return 200 and an empty array when no categories exist
+
+    error: deadlock detected
+
+    [0m [90m  5 |[39m beforeEach([36masync[39m () [33m=&gt;[39m {
+     [90m  6 |[39m   [90m// Clear categories table before each test to maintain a clean state[39m
+    [31m[1m&gt;[22m[39m[90m  7 |[39m   [36mawait[39m pool[33m.[39mquery([32m'DELETE FROM categories'[39m)[33m;[39m
+     [90m    |[39m   [31m[1m^[22m[39m
+     [90m  8 |[39m })[33m;[39m
+     [90m  9 |[39m
+     [90m 10 |[39m afterAll([36masync[39m () [33m=&gt;[39m {[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.&lt;anonymous&gt; (__tests__/integration/categories.routes.test.js:7:3)
+
+  ● GET /api/categories › should return 200 and a list of categories when they exist
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 2
+    Received length: 0
+    Received array:  []
+
+    [0m [90m 36 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m 37 |[39m     [36mconst[39m categories [33m=[39m res[33m.[39mbody[33m.[39mrows [33m||[39m res[33m.[39mbody[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 38 |[39m     expect(categories)[33m.[39mtoHaveLength([35m2[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 39 |[39m     expect(categories[[35m0[39m][33m.[39mcategory_name)[33m.[39mtoBe([32m'Food'[39m)[33m;[39m
+     [90m 40 |[39m     expect(categories[[35m1[39m][33m.[39mcategory_name)[33m.[39mtoBe([32m'Salary'[39m)[33m;[39m
+     [90m 41 |[39m   })[33m;[39m[0m
+
+      at Object.toHaveLength (__tests__/integration/categories.routes.test.js:38:24)
+
+  ● PUT /api/categories/:category_id › should return 200 and update the category successfully
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m 127 |[39m       [33m.[39msend({ category_name[33m:[39m [32m'New Name'[39m[33m,[39m category_type[33m:[39m [32m'Income'[39m })[33m;[39m
+     [90m 128 |[39m
+    [31m[1m&gt;[22m[39m[90m 129 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 130 |[39m     expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'Category updated successfully'[39m)[33m;[39m
+     [90m 131 |[39m
+     [90m 132 |[39m     [90m// Verify update in database[39m[0m
+
+      at Object.toBe (__tests__/integration/categories.routes.test.js:129:24)
+
+FAIL __tests__/integration/report.routes.test.js
+  ● GET /api/report/category › should return 200 and the category breakdown
+
+    error: insert or update on table "transactions" violates foreign key constraint "transactions_user_id_fkey"
+
+    [0m [90m 56 |[39m [32m    RETURNING *[39m
+     [90m 57 |[39m [32m  `[39m[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 58 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(query[33m,[39m [userId[33m,[39m categoryId[33m,[39m amount[33m,[39m dateOverride])[33m;[39m
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 59 |[39m   [36mreturn[39m result[33m.[39mrows[[35m0[39m][33m;[39m
+     [90m 60 |[39m }
+     [90m 61 |[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at seedTransaction (__tests__/integration/report.routes.test.js:58:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/report.routes.test.js:147:5)
+
+  ● GET /api/report/dashboard-summary › should return 200 and calculate total income and spending
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 500
+    Received: 0
+
+    [0m [90m 233 |[39m
+     [90m 234 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 235 |[39m     expect([33mNumber[39m(res[33m.[39mbody[33m.[39mtotal_spending))[33m.[39mtoBe([35m500[39m)[33m;[39m
+     [90m     |[39m                                             [31m[1m^[22m[39m
+     [90m 236 |[39m     expect([33mNumber[39m(res[33m.[39mbody[33m.[39mtotal_income))[33m.[39mtoBe([35m2000[39m)[33m;[39m
+     [90m 237 |[39m   })[33m;[39m
+     [90m 238 |[39m[0m
+
+      at Object.toBe (__tests__/integration/report.routes.test.js:235:45)
+
+FAIL __tests__/integration/user.routes.test.js
+  ● GET /api/users › should return 401 if no authorization header is provided
+
+    error: deadlock detected
+
+    [0m [90m 10 |[39m beforeEach([36masync[39m () [33m=&gt;[39m {
+     [90m 11 |[39m   [36mawait[39m pool[33m.[39mquery([32m'DELETE FROM refresh_tokens'[39m)[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 12 |[39m   [36mawait[39m pool[33m.[39mquery([32m'DELETE FROM users'[39m)[33m;[39m
+     [90m    |[39m   [31m[1m^[22m[39m
+     [90m 13 |[39m })[33m;[39m
+     [90m 14 |[39m
+     [90m 15 |[39m afterAll([36masync[39m () [33m=&gt;[39m {[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.&lt;anonymous&gt; (__tests__/integration/user.routes.test.js:12:3)
+
+  ● GET /api/users › should return 401 if the authorization header is malformed
+
+    TypeError: Invalid value "undefined" for header "Authorization"
+
+      at Test.setHeader [as request] (node_modules/superagent/src/node/index.js:830:39)
+      at Test.request [as end] (node_modules/superagent/src/node/index.js:965:8)
+      at Test.end (node_modules/supertest/lib/test.js:136:11)
+      at end (node_modules/superagent/src/request-base.js:283:12)
+      at Test.RequestBase.then (node_modules/superagent/src/request-base.js:265:31)
+
+  ● GET /api/users › should return 200 and the user details for a valid token
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m 140 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/users'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m [32m`Bearer ${validToken}`[39m)[33m;[39m
+     [90m 141 |[39m
+    [31m[1m&gt;[22m[39m[90m 142 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 143 |[39m     expect(res[33m.[39mbody[33m.[39musername)[33m.[39mtoBe([32m'testuser'[39m)[33m;[39m
+     [90m 144 |[39m     expect(res[33m.[39mbody[33m.[39memail)[33m.[39mtoBe([32m'testuser@example.com'[39m)[33m;[39m
+     [90m 145 |[39m     expect(res[33m.[39mbody)[33m.[39mtoHaveProperty([32m'user_id'[39m)[33m;[39m[0m
+
+      at Object.toBe (__tests__/integration/user.routes.test.js:142:24)
+
+  ● GET /api/users › SECURITY: current response includes the hashed password field
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m 155 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/users'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m [32m`Bearer ${validToken}`[39m)[33m;[39m
+     [90m 156 |[39m
+    [31m[1m&gt;[22m[39m[90m 157 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 158 |[39m     [90m// This assertion documents current (undesirable) behavior. The route[39m
+     [90m 159 |[39m     [90m// should select/return an explicit allow-list of columns instead of[39m
+     [90m 160 |[39m     [90m// spreading the raw row, so the password hash is never serialized.[39m[0m
+
+      at Object.toBe (__tests__/integration/user.routes.test.js:157:24)
+
+FAIL __tests__/integration/export.routes.test.js
+  ● GET /api/export/csv › should return 401 if no authorization token is provided
+
+    User was not found in the database after registration.
+
+    [0m [90m 33 |[39m   [36mconst[39m userQuery [33m=[39m [36mawait[39m pool[33m.[39mquery([32m"SELECT user_id FROM users WHERE username = 'exportuser'"[39m)[33m;[39m
+     [90m 34 |[39m   [36mif[39m (userQuery[33m.[39mrows[33m.[39mlength [33m===[39m [35m0[39m) {
+    [31m[1m&gt;[22m[39m[90m 35 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m'User was not found in the database after registration.'[39m)[33m;[39m
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 36 |[39m   }
+     [90m 37 |[39m   userId [33m=[39m userQuery[33m.[39mrows[[35m0[39m][33m.[39muser_id[33m;[39m
+     [90m 38 |[39m[0m
+
+      at Object.&lt;anonymous&gt; (__tests__/integration/export.routes.test.js:35:11)
+
+  ● GET /api/export/csv › should return 200, correct CSV headers, and default 0 values when no budget or expenses exist
+
+    Failed to seed user in beforeEach. Response: {"length":279,"name":"error","severity":"ERROR","code":"23503","detail":"Key (user_id)=(47) is not present in table \"users\".","schema":"public","table":"refresh_tokens","constraint":"refresh_tokens_user_id_fkey","file":"ri_triggers.c","line":"2619","routine":"ri_ReportViolation"}
+
+    [0m [90m 25 |[39m
+     [90m 26 |[39m   [36mif[39m (authRes[33m.[39mstatus [33m!==[39m [35m200[39m) {
+    [31m[1m&gt;[22m[39m[90m 27 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m`Failed to seed user in beforeEach. Response: ${JSON.stringify(authRes.body)}`[39m)[33m;[39m
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 28 |[39m   }
+     [90m 29 |[39m
+     [90m 30 |[39m   userToken [33m=[39m authRes[33m.[39mbody[33m.[39mtoken[33m;[39m[0m
+
+      at Object.&lt;anonymous&gt; (__tests__/integration/export.routes.test.js:27:11)
+
+  ● GET /api/export/csv › should return 200 and accurate CSV content reflecting budget, spent total, and category breakdown
+
+    Failed to seed user in beforeEach. Response: {"length":279,"name":"error","severity":"ERROR","code":"23503","detail":"Key (user_id)=(73) is not present in table \"users\".","schema":"public","table":"refresh_tokens","constraint":"refresh_tokens_user_id_fkey","file":"ri_triggers.c","line":"2619","routine":"ri_ReportViolation"}
+
+    [0m [90m 25 |[39m
+     [90m 26 |[39m   [36mif[39m (authRes[33m.[39mstatus [33m!==[39m [35m200[39m) {
+    [31m[1m&gt;[22m[39m[90m 27 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m`Failed to seed user in beforeEach. Response: ${JSON.stringify(authRes.body)}`[39m)[33m;[39m
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 28 |[39m   }
+     [90m 29 |[39m
+     [90m 30 |[39m   userToken [33m=[39m authRes[33m.[39mbody[33m.[39mtoken[33m;[39m[0m
+
+      at Object.&lt;anonymous&gt; (__tests__/integration/export.routes.test.js:27:11)
+
+FAIL __tests__/integration/recurring.routes.test.js
+  ● POST /api/recurringTransactions › should return 201 and the created recurring transaction
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 404
+
+    [0m [90m 147 |[39m       [33m.[39msend(validBody(categoryId))[33m;[39m
+     [90m 148 |[39m
+    [31m[1m&gt;[22m[39m[90m 149 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 150 |[39m     expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'Recurring transaction created successfully'[39m)[33m;[39m
+     [90m 151 |[39m     expect(res[33m.[39mbody[33m.[39mrecurringTransaction)[33m.[39mtoHaveProperty([32m'recurring_id'[39m)[33m;[39m
+     [90m 152 |[39m   })[33m;[39m[0m
+
+      at Object.toBe (__tests__/integration/recurring.routes.test.js:149:24)
+
+  ● POST /api/recurringTransactions › created recurring transaction should be persisted in the database
+
+    expect(received).toHaveLength(expected)
+
+    Expected length: 1
+    Received length: 0
+    Received array:  []
+
+    [0m [90m 160 |[39m
+     [90m 161 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39m[36mget[39m([33mBASE_PATH[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m [32m`Bearer ${token}`[39m)[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 162 |[39m     expect(res[33m.[39mbody[33m.[39mrows)[33m.[39mtoHaveLength([35m1[39m)[33m;[39m
+     [90m     |[39m                           [31m[1m^[22m[39m
+     [90m 163 |[39m     expect(res[33m.[39mbody[33m.[39mrows[[35m0[39m][33m.[39mdescription)[33m.[39mtoBe([32m'Gym membership'[39m)[33m;[39m
+     [90m 164 |[39m   })[33m;[39m
+     [90m 165 |[39m[0m
+
+      at Object.toHaveLength (__tests__/integration/recurring.routes.test.js:162:27)
+
+  ● POST /api/recurringTransactions › should return 400 for an invalid frequency
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 400
+    Received: 404
+
+    [0m [90m 181 |[39m       [33m.[39msend(validBody(categoryId[33m,[39m { frequency[33m:[39m [32m'Biweekly'[39m }))[33m;[39m
+     [90m 182 |[39m
+    [31m[1m&gt;[22m[39m[90m 183 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m400[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 184 |[39m   })[33m;[39m
+     [90m 185 |[39m
+     [90m 186 |[39m   test([32m'should not create a transaction for a non-existent category'[39m[33m,[39m [36masync[39m () [33m=&gt;[39m {[0m
+
+      at Object.toBe (__tests__/integration/recurring.routes.test.js:183:24)
+
+  ● GET /api/recurringTransactions › should not return another user's recurring transactions
+
+    error: insert or update on table "recurring_transactions" violates foreign key constraint "recurring_transactions_user_id_fkey"
+
+    [0m [90m 71 |[39m   [36mconst[39m data [33m=[39m { [33m...[39mdefaults[33m,[39m [33m...[39moverrides }[33m;[39m
+     [90m 72 |[39m
+    [31m[1m&gt;[22m[39m[90m 73 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 74 |[39m     [32m`INSERT INTO recurring_transactions[39m
+     [90m 75 |[39m [32m      (user_id, category_id, amount, description, frequency, next_date, end_date, is_active)[39m
+     [90m 76 |[39m [32m     VALUES ($1, $2, $3, $4, $5, $6, $7, true)[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at seedRecurringTransaction (__tests__/integration/recurring.routes.test.js:73:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/recurring.routes.test.js:235:5)
+
+  ● PUT /api/recurringTransactions/:id › should return 200 and the updated recurring transaction
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m 326 |[39m       })[33m;[39m
+     [90m 327 |[39m
+    [31m[1m&gt;[22m[39m[90m 328 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 329 |[39m     expect(res[33m.[39mbody[33m.[39mrecurringTransaction[33m.[39mdescription)[33m.[39mtoBe([32m'Updated description'[39m)[33m;[39m
+     [90m 330 |[39m   })[33m;[39m
+     [90m 331 |[39m[0m
+
+      at Object.toBe (__tests__/integration/recurring.routes.test.js:328:24)
+
+  ● PUT /api/recurringTransactions/:id › should return 400 when a required field is missing
+
+    error: insert or update on table "recurring_transactions" violates foreign key constraint "recurring_transactions_category_id_fkey"
+
+    [0m [90m 71 |[39m   [36mconst[39m data [33m=[39m { [33m...[39mdefaults[33m,[39m [33m...[39moverrides }[33m;[39m
+     [90m 72 |[39m
+    [31m[1m&gt;[22m[39m[90m 73 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 74 |[39m     [32m`INSERT INTO recurring_transactions[39m
+     [90m 75 |[39m [32m      (user_id, category_id, amount, description, frequency, next_date, end_date, is_active)[39m
+     [90m 76 |[39m [32m     VALUES ($1, $2, $3, $4, $5, $6, $7, true)[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at seedRecurringTransaction (__tests__/integration/recurring.routes.test.js:73:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/recurring.routes.test.js:334:21)
+
+  ● DELETE /api/recurringTransactions/:id › should return 200 and the deleted recurring transaction
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m 396 |[39m       [33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m [32m`Bearer ${token}`[39m)[33m;[39m
+     [90m 397 |[39m
+    [31m[1m&gt;[22m[39m[90m 398 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 399 |[39m   })[33m;[39m
+     [90m 400 |[39m
+     [90m 401 |[39m   test([32m'should return 500 if database deletion fails'[39m[33m,[39m [36masync[39m () [33m=&gt;[39m {[0m
+
+      at Object.toBe (__tests__/integration/recurring.routes.test.js:398:24)
+
+FAIL __tests__/integration/notificationsRoutes.test.js
+  ● notifications routes › GET /api/notifications/unread returns unread notifications and counts
+
+    error: insert or update on table "notifications" violates foreign key constraint "notifications_user_id_fkey"
+
+    [0m [90m 21 |[39m
+     [90m 22 |[39m [36masync[39m [36mfunction[39m insertNotification({ title[33m,[39m message [33m=[39m [32m'Integration test message'[39m[33m,[39m read [33m=[39m [36mfalse[39m }) {
+    [31m[1m&gt;[22m[39m[90m 23 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 24 |[39m     [32m`INSERT INTO notifications (user_id, type, title, message, read)[39m
+     [90m 25 |[39m [32m     VALUES ($1, $2, $3, $4, $5)[39m
+     [90m 26 |[39m [32m     RETURNING notification_id, read`[39m[33m,[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at insertNotification (__tests__/integration/notificationsRoutes.test.js:23:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/notificationsRoutes.test.js:67:5)
+
+  ● notifications routes › GET /api/notifications/all returns paginated notifications and counts
+
+    error: insert or update on table "notifications" violates foreign key constraint "notifications_user_id_fkey"
+
+    [0m [90m 21 |[39m
+     [90m 22 |[39m [36masync[39m [36mfunction[39m insertNotification({ title[33m,[39m message [33m=[39m [32m'Integration test message'[39m[33m,[39m read [33m=[39m [36mfalse[39m }) {
+    [31m[1m&gt;[22m[39m[90m 23 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 24 |[39m     [32m`INSERT INTO notifications (user_id, type, title, message, read)[39m
+     [90m 25 |[39m [32m     VALUES ($1, $2, $3, $4, $5)[39m
+     [90m 26 |[39m [32m     RETURNING notification_id, read`[39m[33m,[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at insertNotification (__tests__/integration/notificationsRoutes.test.js:23:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/notificationsRoutes.test.js:82:5)
+
+  ● notifications routes › GET /api/notifications/counts returns the authenticated user notification totals
+
+    error: insert or update on table "notifications" violates foreign key constraint "notifications_user_id_fkey"
+
+    [0m [90m 21 |[39m
+     [90m 22 |[39m [36masync[39m [36mfunction[39m insertNotification({ title[33m,[39m message [33m=[39m [32m'Integration test message'[39m[33m,[39m read [33m=[39m [36mfalse[39m }) {
+    [31m[1m&gt;[22m[39m[90m 23 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 24 |[39m     [32m`INSERT INTO notifications (user_id, type, title, message, read)[39m
+     [90m 25 |[39m [32m     VALUES ($1, $2, $3, $4, $5)[39m
+     [90m 26 |[39m [32m     RETURNING notification_id, read`[39m[33m,[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at insertNotification (__tests__/integration/notificationsRoutes.test.js:23:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/notificationsRoutes.test.js:102:5)
+
+  ● notifications routes › POST /api/notifications creates and persists a valid notification
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 500
+
+    [0m [90m 119 |[39m     })[33m;[39m
+     [90m 120 |[39m
+    [31m[1m&gt;[22m[39m[90m 121 |[39m     expect(response[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m     |[39m                             [31m[1m^[22m[39m
+     [90m 122 |[39m     expect(response[33m.[39mbody)[33m.[39mtoEqual(
+     [90m 123 |[39m       expect[33m.[39mobjectContaining({
+     [90m 124 |[39m         success[33m:[39m [36mtrue[39m[33m,[39m[0m
+
+      at Object.toBe (__tests__/integration/notificationsRoutes.test.js:121:29)
+
+  ● notifications routes › POST /api/notifications/budget-alert creates warning and overspending alerts
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 201
+    Received: 500
+
+    [0m [90m 208 |[39m     )[33m;[39m
+     [90m 209 |[39m
+    [31m[1m&gt;[22m[39m[90m 210 |[39m     expect(warning[33m.[39mstatus)[33m.[39mtoBe([35m201[39m)[33m;[39m
+     [90m     |[39m                            [31m[1m^[22m[39m
+     [90m 211 |[39m     expect(warning[33m.[39mbody[33m.[39mdata)[33m.[39mtoEqual(
+     [90m 212 |[39m       expect[33m.[39mobjectContaining({ type[33m:[39m [32m'WARNING'[39m[33m,[39m title[33m:[39m [32m'Budget Warning'[39m })[33m,[39m
+     [90m 213 |[39m     )[33m;[39m[0m
+
+      at Object.toBe (__tests__/integration/notificationsRoutes.test.js:210:28)
+
+  ● notifications routes › DELETE /api/notifications/:id removes an owned notification
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m 263 |[39m     )[33m;[39m
+     [90m 264 |[39m
+    [31m[1m&gt;[22m[39m[90m 265 |[39m     expect(response[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                             [31m[1m^[22m[39m
+     [90m 266 |[39m     expect(response[33m.[39mbody)[33m.[39mtoEqual({
+     [90m 267 |[39m       success[33m:[39m [36mtrue[39m[33m,[39m
+     [90m 268 |[39m       message[33m:[39m [32m'Notification deleted successfully'[39m[33m,[39m[0m
+
+      at Object.toBe (__tests__/integration/notificationsRoutes.test.js:265:29)
+
+  ● notifications routes › PUT /api/notifications/read-all marks every unread notification as read
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 10
+    + Received  +  1
+
+    - Array [
+    -   Object {
+    -     "notification_id": 11,
+    -     "read": true,
+    -   },
+    -   Object {
+    -     "notification_id": 12,
+    -     "read": true,
+    -   },
+    - ]
+    + Array []
+
+    [0m [90m 288 |[39m       [[first[33m.[39mnotification_id[33m,[39m second[33m.[39mnotification_id]][33m,[39m
+     [90m 289 |[39m     )[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 290 |[39m     expect(result[33m.[39mrows)[33m.[39mtoEqual([
+     [90m     |[39m                         [31m[1m^[22m[39m
+     [90m 291 |[39m       { notification_id[33m:[39m first[33m.[39mnotification_id[33m,[39m read[33m:[39m [36mtrue[39m }[33m,[39m
+     [90m 292 |[39m       { notification_id[33m:[39m second[33m.[39mnotification_id[33m,[39m read[33m:[39m [36mtrue[39m }[33m,[39m
+     [90m 293 |[39m     ])[33m;[39m[0m
+
+      at Object.toEqual (__tests__/integration/notificationsRoutes.test.js:290:25)
+
+  ● notifications routes › DELETE /api/notifications/read/clear removes only read notifications
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 5
+    + Received  + 1
+
+    - Array [
+    -   Object {
+    -     "notification_id": 14,
+    -   },
+    - ]
+    + Array []
+
+    [0m [90m 315 |[39m       [[readNotification[33m.[39mnotification_id[33m,[39m unreadNotification[33m.[39mnotification_id]][33m,[39m
+     [90m 316 |[39m     )[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 317 |[39m     expect(result[33m.[39mrows)[33m.[39mtoEqual([{ notification_id[33m:[39m unreadNotification[33m.[39mnotification_id }])[33m;[39m
+     [90m     |[39m                         [31m[1m^[22m[39m
+     [90m 318 |[39m   })[33m;[39m
+     [90m 319 |[39m
+     [90m 320 |[39m   test([32m'DELETE /api/notifications/all removes every notification owned by the user'[39m[33m,[39m [36masync[39m () [33m=&gt;[39m {[0m
+
+      at Object.toEqual (__tests__/integration/notificationsRoutes.test.js:317:25)
+
+  ● notifications routes › DELETE /api/notifications/all removes every notification owned by the user
+
+    error: insert or update on table "notifications" violates foreign key constraint "notifications_user_id_fkey"
+
+    [0m [90m 21 |[39m
+     [90m 22 |[39m [36masync[39m [36mfunction[39m insertNotification({ title[33m,[39m message [33m=[39m [32m'Integration test message'[39m[33m,[39m read [33m=[39m [36mfalse[39m }) {
+    [31m[1m&gt;[22m[39m[90m 23 |[39m   [36mconst[39m result [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m                  [31m[1m^[22m[39m
+     [90m 24 |[39m     [32m`INSERT INTO notifications (user_id, type, title, message, read)[39m
+     [90m 25 |[39m [32m     VALUES ($1, $2, $3, $4, $5)[39m
+     [90m 26 |[39m [32m     RETURNING notification_id, read`[39m[33m,[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at insertNotification (__tests__/integration/notificationsRoutes.test.js:23:18)
+      at Object.&lt;anonymous&gt; (__tests__/integration/notificationsRoutes.test.js:322:5)
+
+FAIL __tests__/integration/transactions.routes.test.js
+  ● POST /api/transactions › should create a transaction successfully
+
+    expect(received).toContain(expected) // indexOf
+
+    Expected value: 500
+    Received array: [200, 201]
+
+    [0m [90m 64 |[39m       })[33m;[39m
+     [90m 65 |[39m
+    [31m[1m&gt;[22m[39m[90m 66 |[39m     expect([[35m200[39m[33m,[39m [35m201[39m])[33m.[39mtoContain(res[33m.[39mstatus)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 67 |[39m     expect(res[33m.[39mbody)[33m.[39mtoHaveProperty([32m'transaction_id'[39m)[33m;[39m
+     [90m 68 |[39m   })[33m;[39m
+     [90m 69 |[39m })[33m;[39m[0m
+
+      at Object.toContain (__tests__/integration/transactions.routes.test.js:66:24)
+
+  ● GET /api/transactions › should return 200 and list of user transactions
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 401
+
+    [0m [90m 73 |[39m     [36mconst[39m res [33m=[39m [36mawait[39m request(app)[33m.[39m[36mget[39m([32m'/api/transactions'[39m)[33m.[39m[36mset[39m([32m'Authorization'[39m[33m,[39m [32m`Bearer ${token}`[39m)[33m;[39m
+     [90m 74 |[39m
+    [31m[1m&gt;[22m[39m[90m 75 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m    |[39m                        [31m[1m^[22m[39m
+     [90m 76 |[39m     expect([33mArray[39m[33m.[39misArray(res[33m.[39mbody))[33m.[39mtoBe([36mtrue[39m)[33m;[39m
+     [90m 77 |[39m   })[33m;[39m
+     [90m 78 |[39m })[33m;[39m[0m
+
+      at Object.toBe (__tests__/integration/transactions.routes.test.js:75:24)
+
+  ● PUT /api/transactions/:id › should return 404 if transaction does not exist for the user
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 404
+    Received: 401
+
+    [0m [90m  99 |[39m       })[33m;[39m
+     [90m 100 |[39m
+    [31m[1m&gt;[22m[39m[90m 101 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m404[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 102 |[39m     expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'Transaction not found.'[39m)[33m;[39m
+     [90m 103 |[39m   })[33m;[39m
+     [90m 104 |[39m[0m
+
+      at Object.toBe (__tests__/integration/transactions.routes.test.js:101:24)
+
+  ● PUT /api/transactions/:id › should update a transaction successfully (204)
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 204
+    Received: 401
+
+    [0m [90m 125 |[39m       })[33m;[39m
+     [90m 126 |[39m
+    [31m[1m&gt;[22m[39m[90m 127 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m204[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 128 |[39m
+     [90m 129 |[39m     [36mconst[39m dbCheck [33m=[39m [36mawait[39m pool[33m.[39mquery(
+     [90m 130 |[39m       [32m'SELECT description, amount FROM transactions WHERE transaction_id = $1'[39m[33m,[39m[0m
+
+      at Object.toBe (__tests__/integration/transactions.routes.test.js:127:24)
+
+FAIL __tests__/integration/budget.routes.test.js
+  ● PUT /api/budget › should update existing budget if one exists
+
+    Failed to seed user in beforeEach. Response: {"length":279,"name":"error","severity":"ERROR","code":"23503","detail":"Key (user_id)=(21) is not present in table \"users\".","schema":"public","table":"refresh_tokens","constraint":"refresh_tokens_user_id_fkey","file":"ri_triggers.c","line":"2619","routine":"ri_ReportViolation"}
+
+    [0m [90m 23 |[39m
+     [90m 24 |[39m   [36mif[39m (authRes[33m.[39mstatus [33m!==[39m [35m200[39m) {
+    [31m[1m&gt;[22m[39m[90m 25 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m`Failed to seed user in beforeEach. Response: ${JSON.stringify(authRes.body)}`[39m)[33m;[39m
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 26 |[39m   }
+     [90m 27 |[39m
+     [90m 28 |[39m   userToken [33m=[39m authRes[33m.[39mbody[33m.[39mtoken[33m;[39m[0m
+
+      at Object.&lt;anonymous&gt; (__tests__/integration/budget.routes.test.js:25:11)
+
+  ● PUT /api/budget › should successfully upsert (update if exists) when PUT is called multiple times
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+    [0m [90m 136 |[39m       [33m.[39msend({ amount[33m:[39m [35m1200[39m })[33m;[39m
+     [90m 137 |[39m
+    [31m[1m&gt;[22m[39m[90m 138 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 139 |[39m     expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'Budget updated successfully.'[39m)[33m;[39m
+     [90m 140 |[39m
+     [90m 141 |[39m     [36mconst[39m dbCheck [33m=[39m [36mawait[39m pool[33m.[39mquery([32m'SELECT amount FROM budgets WHERE user_id = $1'[39m[33m,[39m [userId])[33m;[39m[0m
+
+      at Object.toBe (__tests__/integration/budget.routes.test.js:138:24)
+
+  ● GET /api/budget › should return 200 and a 0 amount if no budget is set
+
+    Failed to seed user in beforeEach. Response: {"length":279,"name":"error","severity":"ERROR","code":"23503","detail":"Key (user_id)=(66) is not present in table \"users\".","schema":"public","table":"refresh_tokens","constraint":"refresh_tokens_user_id_fkey","file":"ri_triggers.c","line":"2619","routine":"ri_ReportViolation"}
+
+    [0m [90m 23 |[39m
+     [90m 24 |[39m   [36mif[39m (authRes[33m.[39mstatus [33m!==[39m [35m200[39m) {
+    [31m[1m&gt;[22m[39m[90m 25 |[39m     [36mthrow[39m [36mnew[39m [33mError[39m([32m`Failed to seed user in beforeEach. Response: ${JSON.stringify(authRes.body)}`[39m)[33m;[39m
+     [90m    |[39m           [31m[1m^[22m[39m
+     [90m 26 |[39m   }
+     [90m 27 |[39m
+     [90m 28 |[39m   userToken [33m=[39m authRes[33m.[39mbody[33m.[39mtoken[33m;[39m[0m
+
+      at Object.&lt;anonymous&gt; (__tests__/integration/budget.routes.test.js:25:11)
+
+  ● GET /api/budget › should return 200 and the correct budget amount if set
+
+    error: insert or update on table "budgets" violates foreign key constraint "budgets_user_id_fkey"
+
+    [0m [90m 157 |[39m
+     [90m 158 |[39m   test([32m'should return 200 and the correct budget amount if set'[39m[33m,[39m [36masync[39m () [33m=&gt;[39m {
+    [31m[1m&gt;[22m[39m[90m 159 |[39m     [36mawait[39m pool[33m.[39mquery(
+     [90m     |[39m     [31m[1m^[22m[39m
+     [90m 160 |[39m       [32m`INSERT INTO budgets (user_id, category_id, amount, description) VALUES ($1, $2, 1500, 'Test Budget')`[39m[33m,[39m
+     [90m 161 |[39m       [userId[33m,[39m categoryId][33m,[39m
+     [90m 162 |[39m     )[33m;[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.&lt;anonymous&gt; (__tests__/integration/budget.routes.test.js:159:5)
+
+FAIL __tests__/integration/settingsRoutes.test.js
+  ● settings routes › GET /api/settings/:userId uses the authenticated user instead of the path value
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 404
+
+    [0m [90m  96 |[39m     [36mconst[39m response [33m=[39m [36mawait[39m authenticated(request(app)[33m.[39m[36mget[39m([32m'/api/settings/999999'[39m))[33m;[39m
+     [90m  97 |[39m
+    [31m[1m&gt;[22m[39m[90m  98 |[39m     expect(response[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                             [31m[1m^[22m[39m
+     [90m  99 |[39m     expect(response[33m.[39mbody[33m.[39mdata[33m.[39muser_id)[33m.[39mtoBe(testUserId)[33m;[39m
+     [90m 100 |[39m   })[33m;[39m
+     [90m 101 |[39m[0m
+
+      at Object.toBe (__tests__/integration/settingsRoutes.test.js:98:29)
+
+  ● settings routes › PATCH /api/settings/profile hashes and persists a new password
+
+    TypeError: Cannot read properties of undefined (reading 'name')
+
+    [0m [90m 116 |[39m       testUserId[33m,[39m
+     [90m 117 |[39m     ])[33m;[39m
+    [31m[1m&gt;[22m[39m[90m 118 |[39m     expect(result[33m.[39mrows[[35m0[39m][33m.[39mname)[33m.[39mtoBe([32m'Integration Test User'[39m)[33m;[39m
+     [90m     |[39m                           [31m[1m^[22m[39m
+     [90m 119 |[39m     [36mawait[39m expect(bcrypt[33m.[39mcompare([32m`${newPassword}${pepper}`[39m[33m,[39m result[33m.[39mrows[[35m0[39m][33m.[39mpassword))[33m.[39mresolves[33m.[39mtoBe(
+     [90m 120 |[39m       [36mtrue[39m[33m,[39m
+     [90m 121 |[39m     )[33m;[39m[0m
+
+      at Object.name (__tests__/integration/settingsRoutes.test.js:118:27)
+
+  ● settings routes › PATCH /api/settings/preferences persists preference changes
+
+    error: duplicate key value violates unique constraint "users_username_key"
+
+    [0m [90m 25 |[39m   [36mconst[39m originalPassword [33m=[39m [36mawait[39m bcrypt[33m.[39mhash([32m`1234${pepper}`[39m[33m,[39m [35m10[39m)[33m;[39m
+     [90m 26 |[39m
+    [31m[1m&gt;[22m[39m[90m 27 |[39m   [36mawait[39m pool[33m.[39mquery(
+     [90m    |[39m   [31m[1m^[22m[39m
+     [90m 28 |[39m     [32m`INSERT INTO users (user_id, username, email, password, name, dob, occupation)[39m
+     [90m 29 |[39m [32m     VALUES ($1, $2, $3, $4, NULL, NULL, NULL)[39m
+     [90m 30 |[39m [32m     ON CONFLICT (user_id)[39m[0m
+
+      at node_modules/pg-pool/index.js:45:11
+      at Object.&lt;anonymous&gt; (__tests__/integration/settingsRoutes.test.js:27:3)
+
+FAIL __tests__/integration/auth.routes.test.js (9.177 s)
+  ● POST /api/auth/register › should accept any captchaInput/captchaAnswer pair as long as they match each other
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 200
+    Received: 500
+
+    [0m [90m 124 |[39m     })[33m;[39m
+     [90m 125 |[39m
+    [31m[1m&gt;[22m[39m[90m 126 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m200[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 127 |[39m   })[33m;[39m
+     [90m 128 |[39m
+     [90m 129 |[39m   [90m// Documents current behavior: if captchaInput/captchaAnswer are both[39m[0m
+
+      at Object.toBe (__tests__/integration/auth.routes.test.js:126:24)
+
+  ● POST /api/auth/login › should return 401 for incorrect password
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 401
+    Received: 404
+
+    [0m [90m 236 |[39m     })[33m;[39m
+     [90m 237 |[39m
+    [31m[1m&gt;[22m[39m[90m 238 |[39m     expect(res[33m.[39mstatus)[33m.[39mtoBe([35m401[39m)[33m;[39m
+     [90m     |[39m                        [31m[1m^[22m[39m
+     [90m 239 |[39m     expect(res[33m.[39mbody[33m.[39mmessage)[33m.[39mtoBe([32m'Wrong password'[39m)[33m;[39m
+     [90m 240 |[39m   })[33m;[39m
+     [90m 241 |[39m[0m
+
+      at Object.toBe (__tests__/integration/auth.routes.test.js:238:24)
+
+  ● POST /api/auth/refresh › should return 204 if the provided JWT token is still valid and not expired
+
+    thrown: "Exceeded timeout of 5000 ms for a test.
+    Add a timeout value to this test to increase the timeout, if this is a long-running test. See https://jestjs.io/docs/api#testname-fn-timeout."
+
+    [0m [90m 271 |[39m
+     [90m 272 |[39m   [90m// Boundary: token provided is still valid (not expired)[39m
+    [31m[1m&gt;[22m[39m[90m 273 |[39m   test([32m'should return 204 if the provided JWT token is still valid and not expired'[39m[33m,[39m [36masync[39m () [33m=&gt;[39m {
+     [90m     |[39m   [31m[1m^[22m[39m
+     [90m 274 |[39m     [36mconst[39m loginRes [33m=[39m [36mawait[39m seedUser()[33m;[39m
+     [90m 275 |[39m     [36mconst[39m validToken [33m=[39m loginRes[33m.[39mbody[33m.[39mtoken[33m;[39m
+     [90m 276 |[39m[0m
+
+      at test (__tests__/integration/auth.routes.test.js:273:3)
+      at Object.describe (__tests__/integration/auth.routes.test.js:263:1)
+
+A worker process has failed to exit gracefully and has been force exited. This is likely caused by tests leaking due to improper teardown. Try running with --detectOpenHandles to find leaks. Active timers can also cause this, ensure that .unref() was called on them.
+Jest: Coverage for branches (74.9%) does not meet "global" threshold (80%)
+Test Suites: 11 failed, 11 total
+Tests:       43 failed, 171 passed, 214 total
+Snapshots:   0 total
+Time:        10.914 s
+
+
+4. E2E TESTS (playwright)
+
+
+&gt; test:e2e
+&gt; node scripts/clean-test-results.js &amp;&amp; dotenv -e .env.test -- playwright test --config=configs/playwright.config.js
+
+Setting environment to test
+Running migrations for test environment...
+◇ injected env (0) from .env.test // tip: ⌁ auth for agents [www.vestauth.com]
+Resetting database schema...
+Schema applied.
+Running seed...
+◇ injected env (0) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+Seeding started...
+Inserted 10 countries
+Inserted 6 users
+Inserted 4 categories
+Inserted 3 transactions
+Inserted 2 budgets
+Inserted 2 notifications
+Seeding completed successfully
+DB connection closed
+Database reset completed successfully.
+
+Running 51 tests using 8 workers
+
+  ✓   1 [chromium] › e2e-tests\notifications.spec.js:10:1 › renders notification data returned by the API (3.4s)
+  ✓   8 [chromium] › e2e-tests\report.spec.js:67:3 › Report Page Load › should display Report heading (3.2s)
+  ✓   7 [chromium] › e2e-tests\recurring.spec.js:83:3 › Recurring Page Load › should display recurring heading (3.3s)
+  ✓   3 [chromium] › e2e-tests\recently-deleted.spec.js:16:3 › Recently Deleted (LocalStorage) E2E › Deleted transaction moves to recently deleted storage (3.6s)
+  ✓   2 [chromium] › e2e-tests\goals.spec.js:20:3 › Goals E2E › User can create a new goal target (3.7s)
+  ✓   6 [chromium] › e2e-tests\login.spec.js:20:1 › User can login successfully (3.9s)
+  ✓   4 [chromium] › e2e-tests\budget.spec.js:16:3 › Budget Controller E2E › User gets error when submitting empty budget amount (4.1s)
+  ✓  10 [chromium] › e2e-tests\report.spec.js:71:3 › Report Page Load › should display report buttons (626ms)
+  ✓  11 [chromium] › e2e-tests\recurring.spec.js:92:3 › Recurring Page Load › should display add button (630ms)
+  ✓   9 [chromium] › e2e-tests\notifications.spec.js:43:1 › mark all and clear all use their notification endpoints (765ms)
+  ✓  13 [chromium] › e2e-tests\goals.spec.js:44:3 › Goals E2E › User can update progress on existing goal (737ms)
+  ✓  12 [chromium] › e2e-tests\recently-deleted.spec.js:34:3 › Recently Deleted (LocalStorage) E2E › User can restore item from recently deleted (820ms)
+  ✓  14 [chromium] › e2e-tests\login.spec.js:27:1 › User cannot login due to username being wrong (797ms)
+  ✓  16 [chromium] › e2e-tests\report.spec.js:83:3 › Report Page Load › should display summary table headers (627ms)
+  ✓  17 [chromium] › e2e-tests\recurring.spec.js:100:3 › Recurring Page Load › should display recurring table (711ms)
+  ✓  18 [chromium] › e2e-tests\settings.spec.js:36:1 › loads profile information from the settings API (756ms)
+  ✓   5 [chromium] › e2e-tests\registration.spec.js:58:1 › User can register successfully (5.0s)
+  ✓  20 [chromium] › e2e-tests\transactions.spec.js:16:3 › Transactions Table E2E › User can add a new transaction and see it in the table (806ms)
+  ✓  22 [chromium] › e2e-tests\report.spec.js:91:3 › Report Page Load › should display dashboard cards (534ms)
+  ✓  15 [chromium] › e2e-tests\budget.spec.js:34:3 › Budget Controller E2E › User can update overall budget monthly limit (1.3s)
+  ✓  23 [chromium] › e2e-tests\recurring.spec.js:110:3 › Recurring Transaction List › should display recurring transaction data (563ms)
+  ✓  21 [chromium] › e2e-tests\login.spec.js:36:1 › User cannot login due to incorrect password (715ms)
+  ✓  26 [chromium] › e2e-tests\transactions.spec.js:40:3 › Transactions Table E2E › User can bulk delete selected transactions (507ms)
+  ✓  29 [chromium] › e2e-tests\recurring.spec.js:116:3 › Recurring Transaction List › should display summary cards (388ms)
+  ✓  28 [chromium] › e2e-tests\budget.spec.js:60:3 › Budget Controller E2E › Category analytics breakdown renders (534ms)
+  ✓  27 [chromium] › e2e-tests\report.spec.js:99:3 › Report Page Load › should display chart selector (615ms)
+  ✓  30 [chromium] › e2e-tests\transactions.spec.js:57:3 › Transactions Table E2E › User can filter transactions by category (460ms)
+  ✓  32 [chromium] › e2e-tests\report.spec.js:108:3 › Summary Report › should load monthly report by default (333ms)
+  ✓  19 [chromium] › e2e-tests\setup.spec.js:40:1 › User setup sucessfully with only country (2.0s)
+  ✓  24 [chromium] › e2e-tests\settings.spec.js:55:1 › updates a profile password through the settings API (1.6s)
+  ✓  25 [chromium] › e2e-tests\registration.spec.js:65:1 › User fails to register due to password requirements (1.5s)
+  ✓  33 [chromium] › e2e-tests\report.spec.js:112:3 › Summary Report › should load daily report (398ms)
+  ✓  31 [chromium] › e2e-tests\recurring.spec.js:128:3 › Create Recurring Transaction › should create recurring transaction successfully (925ms)
+  ✓  36 [chromium] › e2e-tests\report.spec.js:122:3 › Summary Report › should load weekly report (388ms)
+  ✓  38 [chromium] › e2e-tests\report.spec.js:132:3 › Summary Report › should load yearly report (325ms)
+  ✓  37 [chromium] › e2e-tests\recurring.spec.js:152:3 › Update Recurring Transaction › should update recurring transaction successfully (901ms)
+  ✓  39 [chromium] › e2e-tests\report.spec.js:147:3 › Dashboard Cards › should display dashboard values (264ms)
+  ✓  35 [chromium] › e2e-tests\registration.spec.js:77:1 › User fails to register due to failed captcha (1.4s)
+  ✓  40 [chromium] › e2e-tests\recurring.spec.js:192:3 › Delete Recurring Transaction › should delete recurring transaction successfully (321ms)
+  ✓  41 [chromium] › e2e-tests\report.spec.js:160:3 › Chart › should display chart canvas (292ms)
+  ✓  34 [chromium] › e2e-tests\setup.spec.js:49:1 › User setup sucessfully with notifications disabled (1.7s)
+  ✓  43 [chromium] › e2e-tests\report.spec.js:164:3 › Chart › should switch chart type (302ms)
+  ✓  45 [chromium] › e2e-tests\report.spec.js:179:3 › Top Categories › should display top categories section (211ms)
+  ✓  46 [chromium] › e2e-tests\report.spec.js:187:3 › Top Categories › should display category list (213ms)
+  ✓  47 [chromium] › e2e-tests\report.spec.js:196:3 › CSV Export › should download csv report (301ms)
+  ✓  42 [chromium] › e2e-tests\recurring.spec.js:216:3 › Validation › should prevent create without required fields (1.2s)
+  ✓  48 [chromium] › e2e-tests\report.spec.js:222:3 › Boundary Cases › should keep report table visible (256ms)
+  ✓  49 [chromium] › e2e-tests\recurring.spec.js:224:3 › Validation › should reject invalid frequency (254ms)
+  ✓  44 [chromium] › e2e-tests\setup.spec.js:59:1 › User setup unsuccessfully with invalid Warning threshold (1.4s)
+  ✓  50 [chromium] › e2e-tests\report.spec.js:226:3 › Boundary Cases › should keep dashboard cards visible (278ms)
+  ✓  51 [chromium] › e2e-tests\report.spec.js:234:3 › Boundary Cases › chart selector should only allow pie or bar (560ms)
+
+  51 passed (12.6s)
+
+
+============================================================
+  QA SUMMARY
+============================================================
+   <span style="color:#22c55e;font-weight:bold">[PASS]</span> 1. LINT (eslint)
+   <span style="color:#22c55e;font-weight:bold">[PASS]</span> 2. FORMAT CHECK (prettier)
+   <span style="color:#ef4444;font-weight:bold">[FAIL]</span> 3. UNIT + INTEGRATION TESTS (jest --coverage)
+   <span style="color:#22c55e;font-weight:bold">[PASS]</span> 4. E2E TESTS (playwright)
+
+============================================================
+  REPORTS
+============================================================
+   playwright-report/index.html    (E2E test report)
+   coverage-report/index.html      (HTML coverage report)
+   coverage-report/lcov.info       (LCOV for CI integration)
+   reports/eslint-report.html      (lint analysis)
+   reports/qa-report.html          (this combined report)
+============================================================
+
+   1 pipeline step(s) FAILED.
+</pre>
+</body>
+</html>

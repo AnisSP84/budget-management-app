@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Setup</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Dark Mode CSS -->
+    <link rel="stylesheet" href="css/darkMode.css" />
+  </head>
+
+  <body class="light-mode">
+    <main class="py-4">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <section class="card shadow-sm border-0 p-4 rounded-4">
+              <h2 class="h4 mb-4 text-center fw-bold">Setup</h2>
+
+              <!-- Country -->
+              <div class="mb-3">
+                <label for="countrySelect" class="form-label">Country</label>
+                <select class="form-select text-muted" id="countrySelect">
+                  <option value="" selected hidden>Select Your Country</option>
+                </select>
+              </div>
+
+              <!-- Dark Mode -->
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" id="darkMode" />
+                <label class="form-check-label" for="darkMode"> Dark Mode </label>
+              </div>
+
+              <!-- Budget Notifications -->
+              <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" id="budgetNotification" checked />
+                <label class="form-check-label" for="budgetNotification">
+                  Budget Notifications
+                </label>
+              </div>
+
+              <!-- Warning Threshold -->
+              <div class="mb-3">
+                <label for="warningThreshold" class="form-label"> Warning Threshold (%) </label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="warningThreshold"
+                  value="80"
+                  min="1"
+                  max="100"
+                />
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary mt-3 w-100 disabled"
+                id="submitCountryBtn"
+              >
+                Continue
+              </button>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+      crossorigin="anonymous"
+    ></script>
+    <script defer src="js/refreshToken.js"></script>
+    <script defer src="js/queryCmds.js" type="text/javascript"></script>
+    <script defer src="js/getCurrentURL.js" type="text/javascript"></script>
+    <script defer src="js/setup.js" type="text/javascript"></script>
+    <script defer src="js/footer.js" type="text/javascript"></script>
+    <!-- Dark Mode Script -->
+    <script defer src="js/darkMode.js"></script>
+  </body>
+</html>

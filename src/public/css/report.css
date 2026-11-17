@@ -1,0 +1,445 @@
+/* ===========================
+   GENERAL
+=========================== */
+
+body {
+  font-family:
+    'Poppins',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  font-weight: 400;
+  background: #f4f7fb;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* ===========================
+   MAIN CONTAINER
+=========================== */
+
+.report-container {
+  max-width: 1200px;
+  margin: 30px auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ===========================
+   TITLES
+=========================== */
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+h2 {
+  margin-top: 35px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+h3 {
+  margin-bottom: 15px;
+}
+
+/* ===========================
+   BUTTON GROUP
+=========================== */
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.btn-group .btn {
+  min-width: 120px;
+}
+
+/* ===========================
+   CHART SELECTOR
+=========================== */
+
+.chart-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.chart-buttons label {
+  font-weight: bold;
+}
+
+.chart-buttons select {
+  width: 180px;
+}
+
+/* ===========================
+   CHART CONTAINER
+=========================== */
+
+.chart-container {
+  width: 100%;
+  max-width: 850px;
+  height: 450px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+/* ===========================
+   CHART SELECTOR
+=========================== */
+
+.chart-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.chart-buttons label {
+  font-weight: bold;
+}
+
+.chart-buttons select {
+  width: 180px;
+}
+
+/* ===========================
+   CHART CARD
+=========================== */
+
+.chart-card {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
+  padding: 25px;
+  margin: 30px auto;
+}
+
+.chart-card h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* ===========================
+   CHART CONTAINER
+=========================== */
+
+.chart-container {
+  width: 100%;
+  max-width: 700px;
+  height: 450px;
+  margin: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container canvas {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+/* ===========================
+   SUMMARY TABLE
+=========================== */
+
+.table {
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.table thead {
+  background: #0d6efd;
+  color: white;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  vertical-align: middle;
+  padding: 12px;
+}
+
+.table tbody tr:hover {
+  background: #f5f7fb;
+}
+
+/* ===========================
+   DASHBOARD CARDS
+=========================== */
+
+.cards-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 35px 0;
+}
+
+.card {
+  flex: 1;
+  min-width: 220px;
+  border: none;
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #666;
+}
+
+.card p {
+  margin-top: 15px;
+  font-size: 30px;
+  font-weight: bold;
+  color: #0d6efd;
+}
+
+/* ===========================
+   TOP CATEGORIES
+=========================== */
+
+#topCategories {
+  padding-left: 25px;
+  margin: 0;
+}
+
+#topCategories li {
+  padding: 10px 0;
+  font-size: 16px;
+  border-bottom: 1px solid #eee;
+}
+
+#topCategories li:last-child {
+  border-bottom: none;
+}
+
+/* ===========================
+   BUTTONS
+
+button {
+  transition: .25s;
+}
+
+button:hover {
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   NO DATA
+=========================== */
+
+#noDataMessage {
+  font-size: 18px;
+  padding: 20px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 992px) {
+  .cards-container {
+    flex-direction: column;
+  }
+
+  .card {
+    min-width: 100%;
+  }
+
+  .chart-container {
+    height: 380px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container,
+  .report-container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .btn-group {
+    flex-direction: column;
+  }
+
+  .btn-group .btn {
+    width: 100%;
+  }
+
+  .chart-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .chart-buttons select {
+    width: 100%;
+  }
+
+  .chart-container {
+    height: 300px;
+    padding: 15px;
+  }
+
+  .card p {
+    font-size: 24px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+/* ===========================
+   DARK MODE STYLES
+=========================== */
+
+body.dark-mode {
+  background: #1a1a2e;
+  color: #e8e8e8;
+}
+
+body.dark-mode h1 {
+  color: #4a90e2;
+}
+
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5 {
+  color: #e8e8e8;
+}
+
+/* Cards */
+body.dark-mode .card {
+  background: #16213e !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .card h3,
+body.dark-mode .card h5 {
+  color: #a8d0e6;
+}
+
+body.dark-mode .card p {
+  color: #74b9ff;
+}
+
+/* Chart container */
+body.dark-mode .chart-container {
+  background: #16213e !important;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .chart-card {
+  background: #16213e !important;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .chart-card h3 {
+  color: #e8e8e8;
+}
+
+/* Select dropdown */
+body.dark-mode .chart-buttons select,
+body.dark-mode #chartType,
+body.dark-mode .form-select {
+  background-color: #1e3a5f;
+  border-color: #2a4a7a;
+  color: #e8e8e8;
+}
+
+body.dark-mode .chart-buttons select:focus,
+body.dark-mode #chartType:focus,
+body.dark-mode .form-select:focus {
+  border-color: #4a90e2;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.1);
+}
+
+body.dark-mode .chart-buttons label {
+  color: #e8e8e8;
+}
+
+/* Summary Table */
+body.dark-mode .table {
+  background: #16213e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .table-bordered {
+  background: #16213e !important;
+  border-color: #2a4a7a;
+}
+
+body.dark-mode .table-bordered th,
+body.dark-mode .table-bordered td {
+  background: #16213e !important;
+  color: #e8e8e8;
+  border-color: #2a4a7a;
+}
+
+body.dark-mode .table thead {
+  background: #0f3460;
+}
+
+body.dark-mode .table tbody tr:hover {
+  background: rgba(74, 144, 226, 0.1);
+}
+
+body.dark-mode .table th,
+body.dark-mode .table td {
+  color: #e8e8e8;
+  border-color: #2a4a7a;
+}
+
+/* Top categories list */
+body.dark-mode #topCategories li {
+  color: #e8e8e8;
+  border-bottom-color: #2a4a7a;
+}
+
+/* No data message */
+body.dark-mode #noDataMessage {
+  color: #a8d0e6 !important;
+}
+
+/* Text muted */
+body.dark-mode .text-muted {
+  color: #a8d0e6 !important;
+}

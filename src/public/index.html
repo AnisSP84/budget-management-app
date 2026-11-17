@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- SEO Meta Tags -->
+    <title>MOSS Finance Tracker - Manage Your Finances Smartly</title>
+    <meta
+      name="description"
+      content="Track your spending, manage budgets, and build better financial habits with MOSS Finance Tracker."
+    />
+    <meta name="theme-color" content="#0d6efd" />
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="MOSS Finance Tracker" />
+    <meta
+      property="og:description"
+      content="Track your spending, manage budgets, and build better financial habits."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/darkMode.css" />
+
+    <style>
+      /* Base styles */
+      :root {
+        --transition-speed: 0.3s;
+        --border-radius: 1rem;
+      }
+
+      /* Hero Section */
+      .hero-section {
+        padding: 4rem 0 3rem 0;
+        background: transparent;
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+      }
+
+      .hero-section .display-3 {
+        letter-spacing: -0.02em;
+        line-height: 1.2;
+      }
+
+      /* Feature Icons */
+      .feature-icon {
+        font-size: 2.8rem;
+        margin-bottom: 1.2rem;
+        display: inline-block;
+        opacity: 0.85;
+        transition: transform var(--transition-speed) ease;
+      }
+
+      .card:hover .feature-icon {
+        transform: scale(1.1) rotate(-3deg);
+      }
+
+      /* Cards */
+      .card {
+        transition:
+          transform var(--transition-speed) ease,
+          box-shadow var(--transition-speed) ease;
+        background: var(--bs-card-bg, #ffffff);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        height: 100%;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 1.5rem 3rem rgba(0, 0, 0, 0.1) !important;
+      }
+
+      /* Tip Section */
+      .tip-section .alert {
+        border-left: 6px solid var(--bs-primary, #0d6efd) !important;
+        background: var(--bs-light, #f8f9fa);
+        border-radius: var(--border-radius);
+      }
+
+      /* Buttons */
+      .btn-group-hero .btn {
+        min-width: 140px;
+        padding: 0.75rem 2rem;
+        font-weight: 500;
+        transition: all var(--transition-speed) ease;
+      }
+
+      .btn-group-hero .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+      }
+
+      .btn-group-hero .btn:active {
+        transform: translateY(0);
+      }
+
+      /* Auth Buttons Container */
+      #authButtons .btn {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Welcome Message */
+      #welcomeMessage {
+        transition: color var(--transition-speed) ease;
+      }
+
+      /* Motivational Quote Card */
+      .quote-card {
+        background: var(--bs-light, #f8f9fa);
+        border: none;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+      }
+
+      .quote-card .quote-mark {
+        font-size: 3rem;
+        opacity: 0.2;
+        line-height: 1;
+        margin-bottom: -1rem;
+      }
+
+      /* Dark Mode Compatibility */
+      .light-mode .card {
+        background: #ffffff;
+      }
+
+      .dark-mode .card {
+        background: #2b2b2b;
+        border-color: rgba(255, 255, 255, 0.05);
+      }
+
+      .dark-mode .tip-section .alert {
+        background: #2b2b2b;
+        border-color: #6c8cff !important;
+      }
+
+      .dark-mode .quote-card {
+        background: #2b2b2b;
+      }
+
+      .dark-mode .text-muted {
+        color: #b0b0b0 !important;
+      }
+
+      .dark-mode .btn-outline-dark {
+        color: #e0e0e0;
+        border-color: #e0e0e0;
+      }
+
+      .dark-mode .btn-outline-dark:hover {
+        color: #ffffff;
+        background-color: #e0e0e0;
+        border-color: #e0e0e0;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 576px) {
+        .hero-section {
+          padding: 2rem 0 2rem 0;
+          min-height: 50vh;
+        }
+
+        .hero-section .display-3 {
+          font-size: calc(1.8rem + 1.5vw);
+        }
+
+        .btn-group-hero .btn {
+          min-width: 120px;
+          padding: 0.6rem 1.5rem;
+          font-size: 1rem;
+        }
+
+        .feature-icon {
+          font-size: 2.2rem;
+        }
+
+        .card {
+          border-radius: 0.75rem;
+        }
+      }
+
+      @media (min-width: 768px) {
+        .hero-section {
+          padding: 5rem 0 4rem 0;
+        }
+      }
+
+      /* Print Styles */
+      @media print {
+        .hero-section {
+          min-height: auto;
+          padding: 2rem 0;
+        }
+        .card:hover {
+          transform: none !important;
+        }
+        .btn-group-hero .btn {
+          border: 1px solid #000 !important;
+        }
+      }
+
+      /* Accessibility - Reduced Motion */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* Focus Styles for Keyboard Navigation */
+      .btn:focus-visible,
+      a:focus-visible {
+        outline: 3px solid var(--bs-primary, #0d6efd);
+        outline-offset: 2px;
+      }
+
+      /* Skip to content link (accessibility) */
+      .skip-link {
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #000;
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        z-index: 9999;
+        border-radius: 0 0 0.5rem 0.5rem;
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .skip-link:focus {
+        top: 0;
+      }
+    </style>
+  </head>
+
+  <body class="light-mode">
+    <!-- Skip to Content Link (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Navbar -->
+    <div id="navbar" role="navigation" aria-label="Main navigation"></div>
+
+    <!-- Hero Section -->
+    <header class="hero-section text-center" role="banner">
+      <div class="container">
+        <h1 id="welcomeMessage" class="display-3 fw-bold mt-3 mb-3">
+          Welcome to MOSS Finance Tracker
+        </h1>
+
+        <p
+          id="welcomeSubtitle"
+          class="lead mb-4"
+          style="max-width: 600px; margin-left: auto; margin-right: auto"
+        >
+          Track your spending, manage budgets, and build better financial habits.
+        </p>
+
+        <!-- Dynamic Auth Buttons Container -->
+        <div
+          id="authButtons"
+          class="btn-group-hero d-flex flex-wrap justify-content-center gap-2"
+          role="group"
+          aria-label="Authentication actions"
+        >
+          <!-- Buttons will be dynamically rendered by JavaScript -->
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content" class="py-4">
+      <!-- Features Section -->
+      <section class="container mb-5" aria-labelledby="features-heading">
+        <div class="text-center mb-5">
+          <h2 id="features-heading" class="fw-bold">Features</h2>
+          <p class="text-muted" style="max-width: 500px; margin: 0 auto">
+            Simple tools to help you stay on top of your finances.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="card shadow-sm border-0 rounded-4 h-100 p-4 text-center">
+              <div class="feature-icon" aria-hidden="true">📊</div>
+              <h3 class="fw-bold mb-3 h4">Transaction Tracking</h3>
+              <p class="text-muted mb-0">
+                Record and monitor your daily income and expenses easily.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <article class="card shadow-sm border-0 rounded-4 h-100 p-4 text-center">
+              <div class="feature-icon" aria-hidden="true">🎯</div>
+              <h3 class="fw-bold mb-3 h4">Budget Planning</h3>
+              <p class="text-muted mb-0">
+                Set spending limits and stay within your financial goals.
+              </p>
+            </article>
+          </div>
+
+          <div class="col-md-4">
+            <article class="card shadow-sm border-0 rounded-4 h-100 p-4 text-center">
+              <div class="feature-icon" aria-hidden="true">📈</div>
+              <h3 class="fw-bold mb-3 h4">Visual Reports</h3>
+              <p class="text-muted mb-0">
+                Analyze your spending with charts and financial summaries.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Finance Tip Section -->
+      <section class="container mb-5 tip-section" aria-labelledby="tip-heading">
+        <div class="alert border-0 shadow-sm rounded-4 p-4">
+          <div class="d-flex align-items-start">
+            <div style="font-size: 2rem; margin-right: 1rem" aria-hidden="true">💡</div>
+            <div>
+              <h3 id="tip-heading" class="fw-bold h5 mb-2">Financial Tip</h3>
+              <p id="financeTip" class="mb-0 text-muted" style="font-size: 1.05rem">
+                Try the 50/30/20 budgeting rule: 50% of your income for needs, 30% for wants, and
+                20% for savings and investments.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Motivational Quote Section -->
+      <section class="container mb-5" aria-label="Motivational quote">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="quote-card text-center">
+              <div class="quote-mark" aria-hidden="true">"</div>
+              <p class="mb-0" style="font-weight: 500; font-size: 1.1rem">
+                Every great financial future begins with a single step — track, plan, grow.
+              </p>
+              <p class="mb-0 text-muted small mt-2">— MOSS Finance</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <div id="footer" role="contentinfo"></div>
+
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+      defer
+    ></script>
+
+    <!-- Scripts -->
+    <script defer src="js/queryCmds.js"></script>
+    <script defer src="js/getCurrentURL.js"></script>
+    <script defer src="js/refreshToken.js"></script>
+    <script defer src="js/navbar.js"></script>
+    <script defer src="js/userNavbarToggle.js"></script>
+    <script defer src="js/getToken.js"></script>
+    <script defer src="js/footer.js"></script>
+    <script defer src="js/darkMode.js"></script>
+    <script defer src="js/index.js"></script>
+  </body>
+</html>

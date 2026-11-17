@@ -1,0 +1,197 @@
+/* Dark Mode Styles - Global for all pages */
+
+/* Base dark mode styles for common elements */
+body.dark-mode {
+  background-color: #1a1a2e;
+  color: #e8e8e8;
+}
+
+body.light-mode {
+  background-color: #f0f2f5;
+  color: #1e2a3e;
+}
+
+/* Card styles */
+body.dark-mode .card {
+  background-color: #16213e;
+  border-color: #2a4a7a;
+  color: #e8e8e8;
+}
+
+body.light-mode .card {
+  background-color: white;
+  border-color: #e0e0e0;
+  color: #1e2a3e;
+}
+
+/* Form inputs */
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #1e3a5f;
+  border-color: #2a4a7a;
+  color: #e8e8e8;
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode select::placeholder {
+  color: #8ab3cf;
+}
+
+body.dark-mode input:focus,
+body.dark-mode select:focus {
+  border-color: #4a90e2;
+  outline: none;
+}
+
+/* Buttons */
+body.dark-mode .btn-outline-dark {
+  border-color: #4a90e2;
+  color: #4a90e2;
+}
+
+body.dark-mode .btn-outline-dark:hover {
+  background-color: #4a90e2;
+  color: white;
+}
+
+body.dark-mode .btn-dark {
+  background-color: #0f3460;
+  border-color: #2a4a7a;
+  color: white;
+}
+
+body.dark-mode .btn-dark:hover {
+  background-color: #1e3a5f;
+}
+
+/* Tables */
+body.dark-mode table {
+  background-color: #16213e;
+  color: #e8e8e8;
+}
+
+body.dark-mode th,
+body.dark-mode td {
+  border-color: #2a4a7a;
+}
+
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+  background-color: #1e3a5f;
+}
+
+/* Navbar */
+body.dark-mode .bg-primary {
+  background-color: #0f3460 !important;
+}
+
+body.dark-mode .navbar-dark .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .navbar-dark .navbar-nav .nav-link:hover {
+  color: white;
+}
+
+/* Lists */
+body.dark-mode .list-group-item {
+  background-color: #16213e;
+  border-color: #2a4a7a;
+  color: #e8e8e8;
+}
+
+/* Modals */
+body.dark-mode .modal-content {
+  background-color: #16213e;
+  border-color: #2a4a7a;
+  color: #e8e8e8;
+}
+
+body.dark-mode .modal-header,
+body.dark-mode .modal-footer {
+  border-color: #2a4a7a;
+}
+
+/* Dropdowns */
+body.dark-mode .dropdown-menu {
+  background-color: #16213e;
+  border-color: #2a4a7a;
+}
+
+body.dark-mode .dropdown-item {
+  color: #e8e8e8;
+}
+
+body.dark-mode .dropdown-item:hover {
+  background-color: #1e3a5f;
+}
+
+/* Alerts */
+body.dark-mode .alert-light {
+  background-color: #1e3a5f;
+  border-color: #2a4a7a;
+  color: #e8e8e8;
+}
+
+body.dark-mode .alert-dark {
+  background-color: #0f3460;
+  border-color: #2a4a7a;
+  color: white;
+}
+
+/* Text colors */
+body.dark-mode .text-dark {
+  color: #e8e8e8 !important;
+}
+
+body.dark-mode .text-muted {
+  color: #a8d0e6 !important;
+}
+
+body.dark-mode .text-secondary {
+  color: #a8d0e6 !important;
+}
+
+/* Background colors */
+body.dark-mode .bg-light {
+  background-color: #16213e !important;
+}
+
+body.dark-mode .bg-white {
+  background-color: #16213e !important;
+}
+
+/* Borders */
+body.dark-mode .border {
+  border-color: #2a4a7a !important;
+}
+
+body.dark-mode .border-bottom {
+  border-bottom-color: #2a4a7a !important;
+}
+
+body.dark-mode .border-top {
+  border-top-color: #2a4a7a !important;
+}
+
+/* Shadows */
+body.dark-mode .shadow-sm {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Hero section */
+body.dark-mode .hero-section {
+  background-color: #16213e;
+}
+
+body.dark-mode .hero-section h1,
+body.dark-mode .hero-section p {
+  color: #e8e8e8 !important;
+}
+
+/* Footer */
+body.dark-mode footer,
+body.dark-mode .footer {
+  background-color: #0f3460;
+  color: #a8d0e6;
+}
